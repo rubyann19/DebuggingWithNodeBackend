@@ -7,12 +7,18 @@ public class User {
     @SerializedName("id")
     @Expose
     private Integer id;
-    @SerializedName("first_name")
+    @SerializedName("email")
     @Expose
-    private String firstName;
-    @SerializedName("last_name")
+    private String email;
+    @SerializedName("password")
     @Expose
-    private String lastName;
+    private String password;
+    @SerializedName("name")
+    @Expose
+    private String name;
+    @SerializedName("phone")
+    @Expose
+    private String phone;
 
     public Integer getId() {
         return id;
@@ -22,19 +28,35 @@ public class User {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getEmail() {
+        return email;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getPassword() {
+        return password;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

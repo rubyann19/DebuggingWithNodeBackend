@@ -17,16 +17,16 @@ public interface ApiService {
     Call<List<User>> getAllUsers();
     @FormUrlEncoded
     @POST("registerUser")
-    Call<GeneralResponse> registerUser(@Field("first_name") String firstName, @Field("last_name") String lastName);
+    Call<GeneralResponse> registerUser(@Field("email") String email, @Field("last_name") String password, @Field("name") String name, @Field("phone") String phone);
     @FormUrlEncoded
     @POST("addUser")
-    Call<GeneralResponse> addUser(@Field("first_name") String firstName, @Field("last_name") String lastName);
+    Call<GeneralResponse> addUser(@Field("email") String email, @Field("last_name") String password, @Field("name") String name, @Field("phone") String phone);
     @FormUrlEncoded
     @PUT("updateUser")
-    Call<GeneralResponse> updateUser(@Field("first_name") String firstName, @Field("id") int id);
+    Call<GeneralResponse> updateUser(@Field("email") String email, @Field("last_name") String password, @Field("name") String name, @Field("phone") String phone, @Field("id") int id);
     @FormUrlEncoded
     @POST("checkUserCredentials")
-    Call<List<GeneralResponse>> checkUserCredentials(@Field("first_name") String firstName, @Field("last_name") String lastName);
+    Call<List<GeneralResponse>> checkUserCredentials(@Field("email") String email, @Field("password") String password);
     @FormUrlEncoded
     @PUT("deleteUser")
     Call<GeneralResponse> deleteUser(@Field("id") int id);

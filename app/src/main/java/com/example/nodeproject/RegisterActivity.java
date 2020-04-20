@@ -14,7 +14,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity {
-    private EditText firstName, lastName;
+    private EditText name, phone, email, password, confirmPassword;
     private Button register;
 
     @Override
@@ -22,15 +22,18 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        firstName = findViewById(R.id.firstName);
-        lastName = findViewById(R.id.lastName);
+        name = findViewById(R.id.name);
+        phone = findViewById(R.id.phone);
+        email = findViewById(R.id.email);
+        password = findViewById(R.id.password);
+        confirmPassword = findViewById(R.id.confirmPassword);
         register = findViewById(R.id.register);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ApiService api = RetrofitClient.getApiService();
-                Call<GeneralResponse> registerCall = api.registerUser(firstName.getText().toString(), lastName.getText().toString());
+                Call<GeneralResponse> registerCall = api.registerUser(email.getText().toString(), password.getText().toString(), name.getText().toString(), phone.getText().toString());
 
                 registerCall.enqueue(new Callback<GeneralResponse>() {
                     @Override
@@ -39,7 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
                             GeneralResponse resp = response.body();
 
                             if (resp.getStatus() == 200) {
-                                startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+                                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                             } else {
                                 Toast.makeText(RegisterActivity.this, resp.getMessage(), Toast.LENGTH_SHORT).show();
                             }
