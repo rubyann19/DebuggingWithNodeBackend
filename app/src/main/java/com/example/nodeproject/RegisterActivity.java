@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.nodeproject.Retrofit.ApiService;
+import com.example.nodeproject.Retrofit.RetrofitClient;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -33,7 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ApiService api = RetrofitClient.getApiService();
-                Call<GeneralResponse> registerCall = api.registerUser(email.getText().toString(), password.getText().toString(), name.getText().toString(), phone.getText().toString());
+                Call<GeneralResponse> registerCall = api.registerUser(email.getText().toString(), name.getText().toString(), password.getText().toString(), phone.getText().toString());
 
                 registerCall.enqueue(new Callback<GeneralResponse>() {
                     @Override

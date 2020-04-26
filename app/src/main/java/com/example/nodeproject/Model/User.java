@@ -1,4 +1,4 @@
-package com.example.nodeproject;
+package com.example.nodeproject.Model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -7,16 +7,16 @@ public class User {
     @SerializedName("id")
     @Expose
     private Integer id;
-    @SerializedName("email")
+    @SerializedName("email_address")
     @Expose
     private String email;
     @SerializedName("password")
     @Expose
     private String password;
-    @SerializedName("name")
+    @SerializedName("full_name")
     @Expose
     private String name;
-    @SerializedName("phone")
+    @SerializedName("phone_number")
     @Expose
     private String phone;
 

@@ -6,13 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
 
-import java.util.List;
-
-import retrofit2.Call;
+import com.example.nodeproject.Retrofit.ApiService;
+import com.example.nodeproject.Retrofit.RetrofitClient;
+import com.example.nodeproject.ViewRecords.ViewAllRecordsActivity;
 
 public class HomeActivity extends AppCompatActivity {
     private Button updateRecord, deleteRecord, viewAllRecords, searchRecord;
+    private ImageView logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,18 +26,18 @@ public class HomeActivity extends AppCompatActivity {
         deleteRecord = findViewById(R.id.deleteRecord);
         viewAllRecords = findViewById(R.id.viewAllRecord);
         searchRecord = findViewById(R.id.searchRecord);
-        ApiService api = RetrofitClient.getApiService();
+        logout = findViewById(R.id.logout);
 
         updateRecord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, UpdateRecordActivity.class));
+                Toast.makeText(HomeActivity.this, "Loads the update screen", Toast.LENGTH_SHORT).show();
             }
         });
         deleteRecord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, DeleteRecordActivity.class));
+                Toast.makeText(HomeActivity.this, "Loads the delete screen", Toast.LENGTH_SHORT).show();
             }
         });
         viewAllRecords.setOnClickListener(new View.OnClickListener() {
@@ -46,7 +49,15 @@ public class HomeActivity extends AppCompatActivity {
         searchRecord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, SearchRecordActivity.class));
+                Toast.makeText(HomeActivity.this, "Loads the search screen", Toast.LENGTH_SHORT).show();
+            }
+        });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+                Toast.makeText(HomeActivity.this, "User was successfully logged out...", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
     }

@@ -27,6 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:hint="Email Address"
+            android:inputType="textEmailAddress"
             android:textColor="@android:color/primary_text_light"
             android:backgroundTint="@android:color/background_dark" />
 
@@ -36,6 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="Password"
+            android:inputType="textPassword"
             android:textColor="@android:color/primary_text_light"
             android:backgroundTint="@android:color/background_dark" />
 
@@ -45,6 +47,16 @@
             android:layout_height="wrap_content"
             android:text="login"
             android:layout_marginTop="32dp" />
+
+        <TextView
+            android:id="@+id/register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Register here..."
+            android:textColor="@android:color/primary_text_light"
+            android:layout_gravity="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
     </LinearLayout>
 

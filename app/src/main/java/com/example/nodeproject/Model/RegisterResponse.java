@@ -1,4 +1,4 @@
-package com.example.nodeproject;
+package com.example.nodeproject.Model;
 
 public class RegisterResponse {
     private String response;

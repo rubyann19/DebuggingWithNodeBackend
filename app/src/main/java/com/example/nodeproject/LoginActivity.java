@@ -7,7 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.nodeproject.Retrofit.ApiService;
+import com.example.nodeproject.Retrofit.RetrofitClient;
 
 import java.util.List;
 
@@ -18,6 +22,7 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
     private EditText email, password;
     private Button login;
+    private TextView register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +32,16 @@ public class LoginActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         login = findViewById(R.id.login);
+        register = findViewById(R.id.register);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ApiService api = RetrofitClient.getApiService();
+                //Send request to server at runtime
                 Call<List<GeneralResponse>> userCall = api.checkUserCredentials(email.getText().toString(), password.getText().toString());
 
+                //Receive response from the server at runtime
                 userCall.enqueue(new Callback<List<GeneralResponse>>() {
                     @Override
                     public void onResponse(Call<List<GeneralResponse>> call, Response<List<GeneralResponse>> response) {
@@ -59,6 +67,13 @@ public class LoginActivity extends AppCompatActivity {
                         System.out.println(t.getMessage());
                     }
                 });
+            }
+        });
+
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
             }
         });
     }

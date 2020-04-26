@@ -1,4 +1,4 @@
-package com.example.nodeproject;
+package com.example.nodeproject.Retrofit;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
